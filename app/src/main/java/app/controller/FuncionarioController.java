@@ -74,4 +74,35 @@ public class FuncionarioController {
             return new ResponseEntity<>("Erro ao deletar o funcionário: " + e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
+    
+    @GetMapping("/findByNome/{nome}")
+    public ResponseEntity<List<Funcionario>> findByNome(@PathVariable String nome) {
+        try {
+            List<Funcionario> funcionarios = funcionarioService.findByNome(nome);
+            return new ResponseEntity<>(funcionarios, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/findByIdade/{idade}")
+    public ResponseEntity<List<Funcionario>> findByIdade(@PathVariable int idade) {
+        try {
+            List<Funcionario> funcionarios = funcionarioService.findByIdade(idade);
+            return new ResponseEntity<>(funcionarios, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/findByMatriculaNumeroAcima/{matricula}")
+    public ResponseEntity<List<Funcionario>> findByMatriculaNumeroAcima(@PathVariable String matricula) {
+        try {
+            List<Funcionario> funcionarios = funcionarioService.findByMatriculaNumeroAcima(matricula);
+            return new ResponseEntity<>(funcionarios, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+    }
+
 }

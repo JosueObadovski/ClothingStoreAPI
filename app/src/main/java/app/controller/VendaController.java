@@ -74,4 +74,15 @@ public class VendaController {
             return new ResponseEntity<>("Erro ao deletar a venda: " + e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
+    
+    @GetMapping("/valorAcima/{valor}")
+    public ResponseEntity<List<Venda>> buscarVendasComValorAcima(@PathVariable double valor) {
+        try {
+            List<Venda> vendas = vendaService.buscarVendasComValorAcima(valor);
+            return new ResponseEntity<>(vendas, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }

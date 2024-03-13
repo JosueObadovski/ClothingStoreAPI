@@ -37,4 +37,9 @@ public class VendaService {
         this.vendaRepository.deleteById(id);
         return "Venda deletada com sucesso!";
     }
+    
+    public List<Venda> buscarVendasComValorAcima(double valor) {
+        return this.vendaRepository.buscarVendasComValorAcima(valor);
+    }
+
 }

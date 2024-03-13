@@ -37,4 +37,17 @@ public class ProdutoService {
         this.produtoRepository.deleteById(id);
         return "Produto deletado com sucesso!";
     }
+    
+    public List<Produto> findByNome(String nome) {
+        return this.produtoRepository.findByNome(nome);
+    }
+
+    public List<Produto> findByValorAbaixoIgual(double valor) {
+        return this.produtoRepository.findByValorAbaixoIgual(valor);
+    }
+
+    public List<Produto> buscarProdutosComValorAcima(double valor) {
+        return this.produtoRepository.buscarProdutosComValorAcima(valor);
+    }
+
 }

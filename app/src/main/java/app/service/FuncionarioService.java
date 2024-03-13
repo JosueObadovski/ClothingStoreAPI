@@ -37,4 +37,17 @@ public class FuncionarioService {
         this.funcionarioRepository.deleteById(id);
         return "Funcionário deletado com sucesso!";
     }
+    
+    public List<Funcionario> findByNome(String nome) {
+        return this.funcionarioRepository.findByNome(nome);
+    }
+
+    public List<Funcionario> findByIdade(int idade) {
+        return this.funcionarioRepository.findByIdade(idade);
+    }
+
+    public List<Funcionario> findByMatriculaNumeroAcima(String matricula) {
+        return this.funcionarioRepository.findByMatriculaNumeroAcima(matricula);
+    }
+
 }

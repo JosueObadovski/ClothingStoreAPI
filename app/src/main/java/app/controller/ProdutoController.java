@@ -74,4 +74,35 @@ public class ProdutoController {
             return new ResponseEntity<>("Erro ao deletar o produto: " + e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
+    
+    @GetMapping("/findByNome/{nome}")
+    public ResponseEntity<List<Produto>> findByNome(@PathVariable String nome) {
+        try {
+            List<Produto> produtos = produtoService.findByNome(nome);
+            return new ResponseEntity<>(produtos, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/findByValorAbaixoIgual/{valor}")
+    public ResponseEntity<List<Produto>> findByValorAbaixoIgual(@PathVariable double valor) {
+        try {
+            List<Produto> produtos = produtoService.findByValorAbaixoIgual(valor);
+            return new ResponseEntity<>(produtos, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/buscarProdutosComValorAcima/{valor}")
+    public ResponseEntity<List<Produto>> buscarProdutosComValorAcima(@PathVariable double valor) {
+        try {
+            List<Produto> produtos = produtoService.buscarProdutosComValorAcima(valor);
+            return new ResponseEntity<>(produtos, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+    }
+
 }

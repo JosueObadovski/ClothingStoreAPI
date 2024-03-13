@@ -12,6 +12,7 @@ import app.entity.Venda;
 
 public interface VendaRepository extends JpaRepository<Venda, Long> {
     
+	
     public List<Venda> findByCliente(Cliente cliente);
     
     public List<Venda> findByFuncionario(Funcionario funcionario);
