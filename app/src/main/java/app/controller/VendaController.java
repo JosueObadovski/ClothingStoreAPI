@@ -24,6 +24,7 @@ public class VendaController {
     @Autowired
     private VendaService vendaService;
 
+    //Método para salvar uma nova venda
     @PostMapping("/save")
     public ResponseEntity<String> save(@RequestBody Venda venda) {
         try {
@@ -33,7 +34,8 @@ public class VendaController {
             return new ResponseEntity<>("Erro ao realizar a venda: " + e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
-
+    
+    //Método para atualizar uma venda existente pelo id
     @PutMapping("/update/{id}")
     public ResponseEntity<String> update(@PathVariable long id, @RequestBody Venda venda) {
         try {
@@ -43,7 +45,8 @@ public class VendaController {
             return new ResponseEntity<>("Erro ao atualizar a venda: " + e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
-
+    
+    //Método para listar todas as vendas
     @GetMapping("/listAll")
     public ResponseEntity<List<Venda>> listAll() {
         try {
@@ -53,7 +56,8 @@ public class VendaController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
-
+    
+    //Método para encontrar uma venda por id
     @GetMapping("/findById/{id}")
     public ResponseEntity<Venda> findById(@PathVariable long id) {
         try {
@@ -64,7 +68,8 @@ public class VendaController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
-
+    
+    //Método para excluir uma venda por id
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> delete(@PathVariable long id) {
         try {
@@ -75,6 +80,7 @@ public class VendaController {
         }
     }
     
+    //Método para encontrar vendas com valor acima do especificado
     @GetMapping("/valorAcima/{valor}")
     public ResponseEntity<List<Venda>> buscarVendasComValorAcima(@PathVariable double valor) {
         try {
@@ -86,3 +92,5 @@ public class VendaController {
     }
 
 }
+
+//Ass: Josué Antonio Gardasz Obadovski

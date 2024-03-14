@@ -23,7 +23,10 @@ public class FuncionarioController {
 
     @Autowired
     private FuncionarioService funcionarioService;
-
+    
+    //Método POST
+    //URL: POST http://localhost:8080/api/funcionario/save
+    //Método para salvar um novo funcionário
     @PostMapping("/save")
     public ResponseEntity<String> save(@RequestBody Funcionario funcionario) {
         try {
@@ -33,7 +36,10 @@ public class FuncionarioController {
             return new ResponseEntity<>("Erro ao salvar o funcionário: " + e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
-
+    
+    //Método PUT
+    //URL: http://localhost:8080/api/funcionario/update/{id}
+    //Método para atualizar um funcionário existente pelo id
     @PutMapping("/update/{id}")
     public ResponseEntity<String> update(@PathVariable long id, @RequestBody Funcionario funcionario) {
         try {
@@ -43,7 +49,10 @@ public class FuncionarioController {
             return new ResponseEntity<>("Erro ao atualizar o funcionário: " + e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
-
+    
+    //Método GET
+    //URL: http://localhost:8080/api/funcionario/listAll
+    //Método para listar todos os funcionários
     @GetMapping("/listAll")
     public ResponseEntity<List<Funcionario>> listAll() {
         try {
@@ -53,7 +62,10 @@ public class FuncionarioController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
-
+    
+    //Método GET
+    //URL: http://localhost:8080/api/funcionario/findById/{id}
+    //Método para encontrar funcionários por id
     @GetMapping("/findById/{id}")
     public ResponseEntity<Funcionario> findById(@PathVariable long id) {
         try {
@@ -64,7 +76,10 @@ public class FuncionarioController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
-
+    
+    //Metódo DELETE
+    //URL: http://localhost:8080/api/funcionario/delete/{id}
+    //Método para excluir um funcionário por id
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> delete(@PathVariable long id) {
         try {
@@ -75,6 +90,9 @@ public class FuncionarioController {
         }
     }
     
+    //Método GET
+    //URL: http://localhost:8080/api/funcionario/findByNome/{nome}
+    //Método para encontrar funcionários por nome
     @GetMapping("/findByNome/{nome}")
     public ResponseEntity<List<Funcionario>> findByNome(@PathVariable String nome) {
         try {
@@ -84,7 +102,10 @@ public class FuncionarioController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
-
+    
+    //Método GET
+    //URL: http://localhost:8080/api/funcionario/findByIdade/{idade}
+    //Método para encontrar funcionários por idade
     @GetMapping("/findByIdade/{idade}")
     public ResponseEntity<List<Funcionario>> findByIdade(@PathVariable int idade) {
         try {
@@ -94,7 +115,10 @@ public class FuncionarioController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
-
+    
+    //Método GET
+    //URL: http://localhost:8080/api/funcionario/findByMatriculaNumeroAcima/{matricula}
+    //Método para encontrar funcionários cuja matrícula tem número acima do especificado
     @GetMapping("/findByMatriculaNumeroAcima/{matricula}")
     public ResponseEntity<List<Funcionario>> findByMatriculaNumeroAcima(@PathVariable String matricula) {
         try {
@@ -106,3 +130,5 @@ public class FuncionarioController {
     }
 
 }
+
+//Ass: Josué Antonio Gardasz Obadovski

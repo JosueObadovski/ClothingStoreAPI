@@ -23,17 +23,20 @@ public class Funcionario {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long id; //Identificador único do funcionário, gerado automaticamente.
     
     @NotNull(message = "Nome não pode ser nulo")
-    private String nome;
+    private String nome; //Nome do funcionário, não pode ser nulo.
     
     @NotNull(message = "Idade não pode ser nula")
-    private int idade;
+    private int idade; //Idade do funcionário, não pode ser nulo.
     
     @NotNull(message = "Matrícula não pode ser nula")
-    private String matricula;
+    private String matricula; //Número de matrícula do funcionário, não pode ser nulo.
     
+    //Lista de vendas realizadas pelo funcionário. Relação um-para-muitos.
     @OneToMany(mappedBy = "funcionario", cascade = CascadeType.ALL)
     private List<Venda> vendas;
 }
+
+//Ass: Josué Antonio Gardasz Obadovski

@@ -23,7 +23,10 @@ public class ProdutoController {
 
     @Autowired
     private ProdutoService produtoService;
-
+    
+    //Método POST
+    //URL: http://localhost:8080/api/produto/save
+    //Método para salvar um novo produto
     @PostMapping("/save")
     public ResponseEntity<String> save(@RequestBody Produto produto) {
         try {
@@ -33,7 +36,10 @@ public class ProdutoController {
             return new ResponseEntity<>("Erro ao salvar o produto: " + e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
-
+    
+    //Método PUT
+    //URL: http://localhost:8080/api/produto/update/{id}
+    //Método para atualizar um produto existente pelo id
     @PutMapping("/update/{id}")
     public ResponseEntity<String> update(@PathVariable long id, @RequestBody Produto produto) {
         try {
@@ -44,6 +50,9 @@ public class ProdutoController {
         }
     }
 
+    //Método GET
+    //URL: http://localhost:8080/api/produto/listAll
+    //Método para listar todos os produtos
     @GetMapping("/listAll")
     public ResponseEntity<List<Produto>> listAll() {
         try {
@@ -53,7 +62,10 @@ public class ProdutoController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
-
+    
+    //Método GET
+    //URL: http://localhost:8080/api/produto/findById/{id}
+    //Método para encontrar um produto por id
     @GetMapping("/findById/{id}")
     public ResponseEntity<Produto> findById(@PathVariable long id) {
         try {
@@ -64,7 +76,10 @@ public class ProdutoController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
-
+    
+    //Método DELETE
+    //URL: http://localhost:8080/api/produto/delete/{id}
+    //Método para excluir um produto por id
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> delete(@PathVariable long id) {
         try {
@@ -75,6 +90,9 @@ public class ProdutoController {
         }
     }
     
+    //Método GET
+    //URL: http://localhost:8080/api/produto/findByNome/{nome}
+    //Método para encontrar produtos por nome 
     @GetMapping("/findByNome/{nome}")
     public ResponseEntity<List<Produto>> findByNome(@PathVariable String nome) {
         try {
@@ -84,7 +102,10 @@ public class ProdutoController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
-
+    
+    //Método GET
+    //URL: http://localhost:8080/api/produto/findByValorAbaixoIgual/{valor}
+    //Método para encontrar produtos cujo o valor é abaixo ou igual ao especificado
     @GetMapping("/findByValorAbaixoIgual/{valor}")
     public ResponseEntity<List<Produto>> findByValorAbaixoIgual(@PathVariable double valor) {
         try {
@@ -94,7 +115,10 @@ public class ProdutoController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
-
+    
+    //Método GET
+    //URL: http://localhost:8080/api/produto/buscarProdutosComValorAcima/{valor}
+    //Método para encontrar produtos cujo o valor é acima do especificado
     @GetMapping("/buscarProdutosComValorAcima/{valor}")
     public ResponseEntity<List<Produto>> buscarProdutosComValorAcima(@PathVariable double valor) {
         try {
@@ -106,3 +130,5 @@ public class ProdutoController {
     }
 
 }
+
+//Ass: Josué Antonio Gardasz Obadovski

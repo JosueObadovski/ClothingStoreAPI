@@ -22,19 +22,22 @@ public class Cliente {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long id; //Identificador único do cliente, gerado automaticamente.
     
     @NotNull(message = "Nome não pode ser nulo")
-    private String nome;
+    private String nome; //Nome do cliente, não pode ser nulo.
     
     @NotNull(message = "CPF não pode ser nulo")
-    private String cpf;
+    private String cpf; //CPF do cliente, não pode ser nulo.
     
     @NotNull(message = "Idade não pode ser nulo")
-    private int idade;
+    private int idade; //Idade do cliente, não pode ser nulo.
     
-    private String telefone;
+    private String telefone; //Telefone do cliente, pode ser nulo.
     
+    //Lista de vendas associadas a este cliente. Relação um-para-muitos.
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<Venda> vendas;
 }
+
+//Ass: Josué Antonio Gardasz Obadovski

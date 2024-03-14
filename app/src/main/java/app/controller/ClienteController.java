@@ -24,6 +24,9 @@ public class ClienteController {
     @Autowired
     private ClienteService clienteService;
     
+    //Método POST
+    //URL: http://localhost:8080/api/cliente/save
+    //Método para salvar um novo cliente
     @PostMapping("/save")
     public ResponseEntity<String> save(@RequestBody Cliente cliente) {
         try {
@@ -34,6 +37,9 @@ public class ClienteController {
         }
     }
     
+    //Método PUT
+    //URL: http://localhost:8080/api/cliente/update/{id}
+    //Método para atualizar um cliente existente pelo id
     @PutMapping("/update/{id}")
     public ResponseEntity<String> update(@PathVariable long id, @RequestBody Cliente cliente) {
         try {
@@ -44,6 +50,9 @@ public class ClienteController {
         }
     }
     
+    //Método GET
+    //URL: http://localhost:8080/api/cliente/listAll
+    //Método para listar todos os clientes
     @GetMapping("/listAll")
     public ResponseEntity<List<Cliente>> listAll() {
         try {
@@ -54,6 +63,9 @@ public class ClienteController {
         }
     }
     
+    //Método GET
+    //URL: http://localhost:8080/api/cliente/findById/{id}
+    //Método para encontrar um cliente por id
     @GetMapping("/findById/{id}")
     public ResponseEntity<Cliente> findById(@PathVariable long id) {
         try {
@@ -65,6 +77,9 @@ public class ClienteController {
         }
     }
     
+    //Método DELETE
+    //URL: http://localhost:8080/api/cliente/delete/{id}
+    //Método para excluir um cliente por id
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> delete(@PathVariable long id) {
         try {
@@ -75,6 +90,9 @@ public class ClienteController {
         }
     }
     
+    //Método GET
+    //URL: http://localhost:8080/api/cliente/findByNome/{nome}
+    //Método para encontrar clientes por nome
     @GetMapping("/findByNome/{nome}")
     public ResponseEntity<List<Cliente>> findByNome(@PathVariable String nome) {
         try {
@@ -84,7 +102,10 @@ public class ClienteController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
-
+    
+    //Método GET
+    //URL: http://localhost:8080/api/cliente/findByIdade/{idade}
+    //Método para encontrar clientes por idade
     @GetMapping("/findByIdade/{idade}")
     public ResponseEntity<List<Cliente>> findByIdade(@PathVariable int idade) {
         try {
@@ -94,7 +115,10 @@ public class ClienteController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
-
+    
+    //Método GET
+    //URL: http://localhost:8080/api/cliente/findByCpf/{cpf}
+    //Método para encontrar clientes por cpf
     @GetMapping("/findByCpf/{cpf}")
     public ResponseEntity<List<Cliente>> findByCpf(@PathVariable String cpf) {
         try {
@@ -106,3 +130,5 @@ public class ClienteController {
     }
 
 }
+
+//Ass: Josué Antonio Gardasz Obadovski
