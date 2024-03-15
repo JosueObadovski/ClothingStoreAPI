@@ -27,17 +27,17 @@ public class Venda {
     private double valorTotal; //Valor total da venda, não pode ser nulo.
     
     //Cliente associado a esta venda. Relação muitos-para-um.
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JsonIgnoreProperties("vendas")
     private Cliente cliente;
     
     //Funcionário responsável pela venda. Relação muitos-para-um.
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JsonIgnoreProperties("vendas")
     private Funcionario funcionario;
     
     //Produtos incluídos na venda. Relação muitos-para-muitos.
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(name="venda_produto", //Tabela de associação
                joinColumns = @JoinColumn(name="venda_id"), //Coluna que armazena o id das vendas
                inverseJoinColumns = @JoinColumn(name="produto_id"))//Coluna que guarda os identificadores dos produtos incluidos em cada venda

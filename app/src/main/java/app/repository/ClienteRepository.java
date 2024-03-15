@@ -16,7 +16,7 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 	public List<Cliente> findByIdade(int idade);
 	
 	//Busca clientes por CPF, onde o CPF é maior que o valor fornecido. 
-	@Query("FROM Cliente c WHERE c.cpf >: cpf")
+	@Query("FROM Cliente c WHERE c.cpf > :cpf")
 	public List<Cliente> findByCpf(String cpf);
 }
 
